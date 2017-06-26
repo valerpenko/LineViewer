@@ -20,24 +20,23 @@ namespace WindowsFormsApp1
 
         }
 
-        private void Form1_Paint(object sender, PaintEventArgs e)
-        {
-            for (int i = 0;i<lines.Count;i++)
-            e.Graphics.DrawLine(Pens.Black, lines[i].P1(), lines[i].P2());
-           //foreach(Line x in lines)
-            //e.Graphics.DrawLine(Pens.Black, x.P1(), x.P2());
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             //1 - add new line
             Random rnd = new Random();
-            lines.Add(new Line(rnd.NextDouble()*100.0, rnd.NextDouble() * 100.0, rnd.NextDouble() * 100.0, rnd.NextDouble() * 100.0));
+            lines.Add(new Line(rnd.NextDouble()* panel1.Width, rnd.NextDouble() * panel1.Height,
+                               rnd.NextDouble() * panel1.Width, rnd.NextDouble() * panel1.Height));
             //2 - draw this line (old lines are drawn)
             this.Refresh();
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            for (int i = 0;i<lines.Count;i++)
+                e.Graphics.DrawLine(Pens.Black, lines[i].P1(), lines[i].P2());
+                //foreach(Line x in lines)
+                //e.Graphics.DrawLine(Pens.Black, x.P1(), x.P2());
+        }
     }
 }
 
