@@ -32,8 +32,9 @@ namespace WindowsFormsApp1
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            for (int i = 0;i<lines.Count;i++)
-                e.Graphics.DrawLine(Pens.Black, lines[i].P1(), lines[i].P2());
+            for (int i = 0; i < lines.Count; i++)
+            { e.Graphics.DrawLine(lines[i].Color(), lines[i].P1(), lines[i].P2());
+            }
                 //foreach(Line x in lines)
                 //e.Graphics.DrawLine(Pens.Black, x.P1(), x.P2());
         }
