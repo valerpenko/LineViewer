@@ -10,21 +10,23 @@ namespace LineViewerLibrary
     {
         private double x1, y1;
         private double x2, y2;
-        private Pen color;
+        private Color color;
+      
+
         public Line(double px1, double py1, double x2, double y2)
-        {
-            x1 = px1;
+        {   x1 = px1;
             y1 = py1;
             this.x2 = x2;
             this.y2 = y2;
+
             Random r = new Random();
             int c = r.Next(0, 7);
             switch (c)
             {
-                case 0: color = Pens.Red; break;
-                case 1: color = Pens.Orange; break;
-                case 2: color = Pens.Yellow; break;
-                default: color = Pens.Green; break;
+                case 0: color= Color.Red; break;
+                case 1: color = Color.Orange; break;
+                case 2: color = Color.Yellow; break;
+                default: color = Color.Green; break;
             }
         }
         public PointF P1()
@@ -35,7 +37,7 @@ namespace LineViewerLibrary
         {
             return new PointF(Convert.ToSingle(x2), Convert.ToSingle(y2));
         }
-        public Pen Color()
+        public Color LineColor()
         {
             return color;
         }
